@@ -13,7 +13,7 @@ public interface FilmService extends Service {
 
 	List<Film> getAllFilms();
 
-	List<CompositeFilm> getFilmsWithTheirGenres(int start, int step, String sortBy);
+	List<CompositeFilm> getFilms(int start, int step, String sortBy);
 
 	List<CompositeFilm> getAllFilmsWithTheirGenres(Genre genre);
 

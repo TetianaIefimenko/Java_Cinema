@@ -14,7 +14,6 @@ import by.htp.epam.cinema.service.ServiceFactory;
 import by.htp.epam.cinema.service.TicketService;
 import by.htp.epam.cinema.service.TicketsOrderService;
 import by.htp.epam.cinema.web.action.BaseAction;
-import by.htp.epam.cinema.web.util.Timer;
 import by.htp.epam.cinema.web.util.ValidateParamException;
 
 import static by.htp.epam.cinema.web.util.constant.ContextParamNameConstantDeclaration.REQUEST_PARAM_CHOSEN_SEAT_ID;
@@ -69,10 +68,6 @@ public class ToBasketAction implements BaseAction {
 			TicketsOrder ticketsOrder = null;
 			if ((ticketsOrder = ticketsOrderService.readUserNonPaidOrder(user)) == null) {
 				ticketsOrder = ticketsOrderService.createTicketsOrder(user);
-
-				Timer timer = new Timer();
-				timer.start();
-				session.setAttribute(SESSION_PARAM_TIMER, timer);
 			}
 			ticketService.createTicket(filmSessionService.getFilmSession(chosenFilmSessioIdInt), chosenSeat,
 					ticketsOrder);

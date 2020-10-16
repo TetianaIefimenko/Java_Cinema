@@ -20,6 +20,5 @@ public class CompositeFilm implements Serializable {
 	private String description;
 	private String posterUrl;
 	private String youTubeVideoId;
-	private List<Genre> genres;
 
 }

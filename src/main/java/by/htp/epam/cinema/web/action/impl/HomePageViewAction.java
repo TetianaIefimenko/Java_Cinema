@@ -34,7 +34,7 @@ public class HomePageViewAction implements BaseAction {
 		if(sortBy == null){
 			sortBy = "date";
 		}
-		request.setAttribute(REQUEST_PARAM_FILM_WITH_GENRES, filmService.getFilmsWithTheirGenres(start, step, sortBy));
+		request.setAttribute(REQUEST_PARAM_FILM_WITH_GENRES, filmService.getFilms(start, step, sortBy));
 		request.setAttribute(REQUEST_PARAM_ALL_FILMS_COUNT, filmService.getAllFilmsCount());
 		request.getRequestDispatcher(PAGE_USER_MAIN).forward(request, response);
 	}

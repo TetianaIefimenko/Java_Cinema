@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import by.htp.epam.cinema.service.ServiceFactory;
 import by.htp.epam.cinema.service.TicketsOrderService;
 import by.htp.epam.cinema.web.action.BaseAction;
-import by.htp.epam.cinema.web.util.Timer;
 import by.htp.epam.cinema.web.util.ValidateParamException;
 
 import static by.htp.epam.cinema.web.util.constant.ContextParamNameConstantDeclaration.REQUEST_PARAM_CURRENT_USER_CURRENT_ORDER_ID;
@@ -36,9 +35,6 @@ public class PayOrderAction implements BaseAction {
 			ticketsOrderService.payOrder(Integer.parseInt(orderForPay));
 
 			HttpSession session = request.getSession();
-			Timer timer = (Timer) session.getAttribute(SESSION_PARAM_TIMER);
-			timer.setStop(true);
-			session.setAttribute(SESSION_PARAM_TIMER, null);
 
 			request.setAttribute(REQUEST_PARAM_SUCCESS_MESSAGE,
 					resourceManager.getValue(SUCCESS_MSG_PAY_ORDER_ACTION_SUCCESSFULL_PAYMENT));
